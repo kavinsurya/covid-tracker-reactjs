@@ -4,9 +4,11 @@
   color: #6a5d5d;
   background-color: white;
   height: 400px;
+ 
+}
+table{
   width: 100%;
 }
-
 .table tr {
   display: flex;
   justify-content: space-between;
