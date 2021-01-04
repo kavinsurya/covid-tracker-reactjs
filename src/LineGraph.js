@@ -26,8 +26,7 @@ const options = {
       {
         type: "time",
         time: {
-          format: "MM/DD/YY",
-          tooltipFormat: "ll",
+          parser: 'false'
         },
       },
     ],
