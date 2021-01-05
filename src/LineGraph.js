@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Line } from "react-chartjs-2";
 import numeral from "numeral";
 
+//Chart js display options
 const options = {
   legend: {
     display: false,
@@ -26,7 +27,7 @@ const options = {
       {
         type: "time",
         time: {
-          parser: 'false'
+          parser: "false",
         },
       },
     ],
@@ -36,7 +37,6 @@ const options = {
           display: false,
         },
         ticks: {
-          // Include a dollar sign in the ticks
           callback: function (value, index, values) {
             return numeral(value).format("0a");
           },
@@ -46,6 +46,7 @@ const options = {
   },
 };
 
+// building the chart data on daily basics
 const buildChartData = (data, casesType) => {
   let chartData = [];
   let lastDataPoint;
@@ -61,6 +62,8 @@ const buildChartData = (data, casesType) => {
   }
   return chartData;
 };
+
+//fetch the covid data for last 120 days
 
 function LineGraph({ casesType }) {
   const [data, setData] = useState({});

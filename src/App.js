@@ -25,6 +25,7 @@ const App = () => {
   const [mapCenter, setMapCenter] = useState({ lat: 34.80746, lng: -40.4796 });
   const [mapZoom, setMapZoom] = useState(3);
 
+  //Fetch data for a particular country
   useEffect(() => {
     fetch("https://disease.sh/v3/covid-19/all")
       .then((response) => response.json())
@@ -33,6 +34,8 @@ const App = () => {
       });
   }, []);
 
+  //Fetch the Countries value and name
+  //Fetch data for the table
   useEffect(() => {
     const getCountriesData = async () => {
       fetch("https://disease.sh/v3/covid-19/countries")
@@ -52,8 +55,9 @@ const App = () => {
     getCountriesData();
   }, []);
 
-  const onCountryChange = async (e) => {
-    const countryCode = e.target.value;
+  //Fetch the data based on the country
+  const onCountryChange = async (event) => {
+    const countryCode = event.target.value;
 
     const url =
       countryCode === "worldwide"
